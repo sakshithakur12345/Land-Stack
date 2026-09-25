@@ -1,0 +1,55 @@
+Here is the finalized, master prompt. I have extracted the new specific technical and functional requirements from your prompt (like the Tech Stack, GovTech aesthetic, OCR Digitization Module, and Data Source badges) and combined them with the comprehensive details from the original Problem Statement (like the 3 specific map layers, the citizen service tracking, and the inter-departmental workflows).
+
+This prompt is now extremely detailed and ready to be used to generate a complete, feature-rich UI prototype.
+
+***
+
+### **Copy and Paste the Prompt Below:**
+
+**Role & Context:**
+Act as an Expert Frontend Developer and UI/UX Designer. I need you to build the frontend prototype for **"Land Stack,"** an integrated, GIS-based Digital Public Infrastructure (DPI) for Indian land governance. The goal is to transform highly fragmented, paper-based land records into a single, transparent, and modern digital ecosystem.
+
+**Tech Stack & Design Aesthetic:**
+*   **Frameworks:** React (Next.js preferred), Tailwind CSS.
+*   **UI Libraries:** standard UI components (like shadcn/ui), Lucide Icons.
+*   **Map Integration:** Use a placeholder or `react-leaflet` wrapper to represent the GIS viewer.
+*   **Aesthetic:** Clean, professional "GovTech" design. Use trusted blues, crisp whites, and subtle semantic colors (green for verified, yellow for pending, red for alerts). It must be strictly mobile-first and fully responsive.
+
+**Core Application Architecture (The 3 Layers):**
+The UI must visually and functionally represent a layered approach to land data:
+1.  **Base Layer:** Georeferenced cadastral (parcel) boundaries and ULPIN (Unique Land Parcel Identification Number).
+2.  **Essential Layers:** Record of Rights (RoR), zoning, building permissions, mortgages, encumbrances.
+3.  **Use-Case Layers:** Utility infrastructure, property tax status, environmental restriction zones.
+
+---
+
+### **Please design the application with Two Main Views (accessible via a top navigation toggle or login screen):**
+
+#### **1. CITIZEN PORTAL (Public View)**
+*A split-screen or highly interactive layout focusing on transparency and ease of use.*
+*   **Main Map Explorer:** 
+    *   **Search:** A prominent search bar to enter a ULPIN, Owner Name, or Village/City.
+    *   **Map Layer Toggles:** Checkboxes/switches overlaying the map to toggle the "Base Layer," "Essential Layers," and "Use-Case Layers."
+    *   **Info Panel:** When a parcel is clicked on the map, a structured summary card appears showing Ownership status (Verified), Encumbrance status, Zoning rules, and quick action links.
+*   **Citizen Service Dashboard (My Account):**
+    *   **My Properties:** A card grid showing land parcels owned by the logged-in user, displaying a mini-map thumbnail, ULPIN, and current tax status.
+    *   **Services Hub:** Action buttons for "Apply for Title Transfer", "Request Building Permission", or "Report a Dispute".
+    *   **Transaction Status Tracker:** A vertical timeline or progress bar showing the real-time status of ongoing requests (e.g., Submitted -> Department Review -> Approved).
+
+#### **2. ADMINISTRATIVE DASHBOARD (Official View)**
+*A sidebar navigation layout designed for government officials to manage workflows, view AI analytics, and digitize records.*
+*   **Sidebar Navigation:** Dashboard, OCR Digitization, Pending Approvals, Inter-departmental Workflows.
+*   **Overview Stats & AI Insights:** 
+    *   Quick metrics: "Transactions Today", "Pending Approvals".
+    *   Dedicated AI/ML Alerts widget (e.g., "Satellite Change Detection Alert: 3 unauthorized constructions detected on ULPIN #12345").
+*   **OCR Digitization Module (CRITICAL FEATURE):** A dedicated tab for digitizing physical records.
+    *   **UI:** A drag-and-drop image upload zone labeled "Upload Land Document for OCR Digitization".
+    *   **Interactions:** A button saying "Extract Data". Once clicked, show a skeleton loading state for 2 seconds.
+    *   **Output Form:** After loading, render a pre-filled, editable form with mock extracted data (Owner Name, Survey Number, Land Area, ULPIN).
+    *   **BACKEND PLACEHOLDER:** I will integrate the actual ML backend later. You MUST create an empty, clearly labeled async function `async function processOCRData(file)` and tie it to the button. Return a mocked JSON object for now. Leave the clean functional hooks.
+*   **Interoperability Workflow Inbox:** 
+    *   A data table showing incoming requests from other departments (e.g., Request ID, Initiating Dept, Action Required).
+    *   **Data Sources Badge:** Add a UI element on the admin side showing mock API connection statuses indicating cross-department interoperability (e.g., "Registry Dept: Connected (Green)", "Tax Dept: Connected (Green)").
+
+### **Execution Instructions:**
+Please output the complete React/Next.js code for this prototype. Start with the main layout and essential components. Ensure you use modular components so I can easily swap out the mock map and mock OCR function with real backend API calls later. Do not write complex backend logic; focus on a stunning, functional frontend UI.

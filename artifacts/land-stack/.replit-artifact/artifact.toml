@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Land Stack"
+description = "A responsive GIS-based public land records prototype for Indian citizens and government administrators, with parcel exploration, service tracking, workflow management, and OCR digitization."
+version = "1.0.0"
+id = "artifacts/land-stack"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18258
+
+[services.development]
+run = "pnpm --filter @workspace/land-stack run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/land-stack", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/land-stack/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18258"
+BASE_PATH = "/"
